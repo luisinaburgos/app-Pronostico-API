@@ -10,6 +10,7 @@
   var nombre=0;
   var opciones="";
   var provincia=0;
+  var lista = [];
 
 
 
@@ -72,10 +73,15 @@
       for (i=0; i<datosDevueltos.length; i++) {
        nombre = datosDevueltos[i].name;
        provincia = datosDevueltos[i].province;
-       opciones = "<option value="+i+">"+provincia+"-"+nombre+"</option>";
-       $$('#ciudades').append(opciones);
+       lista.push(provincia+"-"+nombre);
+       lista.sort();
+
      };
 
+     for (i=0; i<=lista.length; i++) {
+      opciones = "<option value="+i+">"+lista[i]+"</option>";
+      $$('#ciudades').append(opciones);
+     }
    });
 
 
